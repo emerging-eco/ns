@@ -1,1 +1,450 @@
-
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "default": {},
+    "title": "Root Schema",
+    "required": [
+        "@context",
+        "id",
+        "type",
+        "issuer",
+        "issuanceDate",
+        "credentialSubject"
+    ],
+    "properties": {
+        "@context": {
+            "type": "array",
+            "default": [],
+            "title": "The @context Schema",
+            "items": {
+                "anyOf": [{
+                    "type": "string",
+                    "title": "A Schema",
+                    "examples": [
+                        "https://www.w3.org/2018/credentials/v1",
+                        "https://w3id.org/ixo/context/v1",
+                        "https://w3id.org/ixo/credentials/v1"
+                    ]
+                },
+                {
+                    "type": "object",
+                    "default": {},
+                    "title": "A Schema",
+                    "required": [
+                        "sn",
+                        "web3",
+                        "@version",
+                        "@protected",
+                        "id",
+                        "type"
+                    ],
+                    "properties": {
+                        "sn": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The sn Schema",
+                            "examples": [
+                                "https://registry.emerging.eco/"
+                            ]
+                        },
+                        "web3": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The web3 Schema",
+                            "examples": [
+                                "https://web3.emerging.eco/"
+                            ]
+                        },
+                        "@version": {
+                            "type": "number",
+                            "default": 0.0,
+                            "title": "The @version Schema",
+                            "examples": [
+                                1.0
+                            ]
+                        },
+                        "@protected": {
+                            "type": "boolean",
+                            "default": false,
+                            "title": "The @protected Schema",
+                            "examples": [
+                                true
+                            ]
+                        },
+                        "id": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The id Schema",
+                            "examples": [
+                                "@id"
+                            ]
+                        },
+                        "type": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The type Schema",
+                            "examples": [
+                                "@type"
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "sn": "https://registry.emerging.eco/",
+                        "web3": "https://web3.emerging.eco/",
+                        "@version": 1.0,
+                        "@protected": true,
+                        "id": "@id",
+                        "type": "@type"
+                    }]
+                }]
+            },
+            "examples": [
+                ["https://www.w3.org/2018/credentials/v1",
+                    "https://w3id.org/ixo/context/v1",
+                    "https://w3id.org/ixo/credentials/v1",
+                    {
+                        "sn": "https://registry.emerging.eco/",
+                        "web3": "https://web3.emerging.eco/",
+                        "@version": 1.0,
+                        "@protected": true,
+                        "id": "@id",
+                        "type": "@type"
+                    }
+                ]
+            ]
+        },
+        "id": {
+            "type": "string",
+            "default": "",
+            "title": "The id Schema",
+            "examples": [
+                "https://w3id.org/emerging/credential-schemas/device/v1"
+            ]
+        },
+        "type": {
+            "type": "array",
+            "default": [],
+            "title": "The type Schema",
+            "items": {
+                "type": "string",
+                "title": "A Schema",
+                "examples": [
+                    "VerifiableCredential",
+                    "DeviceCredential"
+                ]
+            },
+            "examples": [
+                ["VerifiableCredential",
+                    "DeviceCredential"
+                ]
+            ]
+        },
+        "issuer": {
+            "type": "string",
+            "default": "",
+            "title": "The issuer Schema",
+            "examples": [
+                "did:ixo:entity:abc123"
+            ]
+        },
+        "issuanceDate": {
+            "type": "string",
+            "default": "",
+            "title": "The issuanceDate Schema",
+            "examples": [
+                "2023-01-01T19:23:24Z"
+            ]
+        },
+        "credentialSubject": {
+            "type": "object",
+            "default": {},
+            "title": "The credentialSubject Schema",
+            "required": [
+                "id",
+                "product",
+                "manufacturer",
+                "certification",
+                "proof"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "default": "",
+                    "title": "The id Schema",
+                    "examples": [
+                        "sn:12312342"
+                    ]
+                },
+                "product": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The product Schema",
+                    "required": [
+                        "model",
+                        "description",
+                        "color"
+                    ],
+                    "properties": {
+                        "model": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The model Schema",
+                            "examples": [
+                                "MimiMoto"
+                            ]
+                        },
+                        "description": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The description Schema",
+                            "examples": [
+                                "Micro-gasification pellet stove"
+                            ]
+                        },
+                        "color": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The color Schema",
+                            "examples": [
+                                "Red"
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "model": "MimiMoto",
+                        "description": "Micro-gasification pellet stove",
+                        "color": "Red"
+                    }]
+                },
+                "manufacturer": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The manufacturer Schema",
+                    "required": [
+                        "name",
+                        "country",
+                        "date"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The name Schema",
+                            "examples": [
+                                "Mimi Moto BV"
+                            ]
+                        },
+                        "country": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The country Schema",
+                            "examples": [
+                                "China"
+                            ]
+                        },
+                        "date": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The date Schema",
+                            "examples": [
+                                "2020"
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "name": "Mimi Moto BV",
+                        "country": "China",
+                        "date": "2020"
+                    }]
+                },
+                "certification": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The certification Schema",
+                    "required": [
+                        "id",
+                        "type",
+                        "issuer",
+                        "date",
+                        "code"
+                    ],
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The id Schema",
+                            "examples": [
+                                "web3:qwyd8j128dju12d89j2qweasd23"
+                            ]
+                        },
+                        "type": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The type Schema",
+                            "examples": [
+                                "PerformanceTestingCertificate"
+                            ]
+                        },
+                        "issuer": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The issuer Schema",
+                            "examples": [
+                                "Colorado State University"
+                            ]
+                        },
+                        "date": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The date Schema",
+                            "examples": [
+                                "2015"
+                            ]
+                        },
+                        "code": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The code Schema",
+                            "examples": [
+                                "WBT 4.2.3"
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "id": "web3:qwyd8j128dju12d89j2qweasd23",
+                        "type": "PerformanceTestingCertificate",
+                        "issuer": "Colorado State University",
+                        "date": "2015",
+                        "code": "WBT 4.2.3"
+                    }]
+                },
+                "proof": {
+                    "type": "object",
+                    "default": {},
+                    "title": "The proof Schema",
+                    "required": [
+                        "type",
+                        "created",
+                        "proofPurpose",
+                        "verificationMethod"
+                    ],
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The type Schema",
+                            "examples": [
+                                "lds"
+                            ]
+                        },
+                        "created": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The created Schema",
+                            "examples": [
+                                "2023-01-01T19:23:24Z"
+                            ]
+                        },
+                        "proofPurpose": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The proofPurpose Schema",
+                            "examples": [
+                                "assertionMethod"
+                            ]
+                        },
+                        "verificationMethod": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The verificationMethod Schema",
+                            "examples": [
+                                "did:ixo:entity:abc123#key-1"
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "type": "lds",
+                        "created": "2023-01-01T19:23:24Z",
+                        "proofPurpose": "assertionMethod",
+                        "verificationMethod": "did:ixo:entity:abc123#key-1"
+                    }]
+                }
+            },
+            "examples": [{
+                "id": "sn:12312342",
+                "product": {
+                    "model": "MimiMoto",
+                    "description": "Micro-gasification pellet stove",
+                    "color": "Red"
+                },
+                "manufacturer": {
+                    "name": "Mimi Moto BV",
+                    "country": "China",
+                    "date": "2020"
+                },
+                "certification": {
+                    "id": "web3:qwyd8j128dju12d89j2qweasd23",
+                    "type": "PerformanceTestingCertificate",
+                    "issuer": "Colorado State University",
+                    "date": "2015",
+                    "code": "WBT 4.2.3"
+                },
+                "proof": {
+                    "type": "lds",
+                    "created": "2023-01-01T19:23:24Z",
+                    "proofPurpose": "assertionMethod",
+                    "verificationMethod": "did:ixo:entity:abc123#key-1"
+                }
+            }]
+        }
+    },
+    "examples": [{
+        "@context": [
+            "https://www.w3.org/2018/credentials/v1",
+            "https://w3id.org/ixo/context/v1",
+            "https://w3id.org/ixo/credentials/v1",
+            {
+                "sn": "https://registry.emerging.eco/",
+                "web3": "https://web3.emerging.eco/",
+                "@version": 1.0,
+                "@protected": true,
+                "id": "@id",
+                "type": "@type"
+            }
+        ],
+        "id": "https://w3id.org/emerging/credential-schemas/device/v1",
+        "type": [
+            "VerifiableCredential",
+            "DeviceCredential"
+        ],
+        "issuer": "did:ixo:entity:abc123",
+        "issuanceDate": "2023-01-01T19:23:24Z",
+        "credentialSubject": {
+            "id": "sn:12312342",
+            "product": {
+                "model": "MimiMoto",
+                "description": "Micro-gasification pellet stove",
+                "color": "Red"
+            },
+            "manufacturer": {
+                "name": "Mimi Moto BV",
+                "country": "China",
+                "date": "2020"
+            },
+            "certification": {
+                "id": "web3:qwyd8j128dju12d89j2qweasd23",
+                "type": "PerformanceTestingCertificate",
+                "issuer": "Colorado State University",
+                "date": "2015",
+                "code": "WBT 4.2.3"
+            },
+            "proof": {
+                "type": "lds",
+                "created": "2023-01-01T19:23:24Z",
+                "proofPurpose": "assertionMethod",
+                "verificationMethod": "did:ixo:entity:abc123#key-1"
+            }
+        }
+    }]
+}
