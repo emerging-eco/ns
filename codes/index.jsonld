@@ -1,0 +1,35 @@
+{
+	"@context": "https://w3id.org/emerging/context",
+	"codes": [
+		{
+			"id": "https://w3id.org/emerging/codes/A",
+			"type": "EvaluationCode",
+			"description": "Signature is not valid"
+		},
+		{
+			"id": "https://w3id.org/emerging/codes/B",
+			"type": "EvaluationCode",
+			"description": "Missing data values"
+		},
+		{
+			"id": "https://w3id.org/emerging/codes/C",
+			"type": "EvaluationCode",
+			"description": "Out of date range"
+		},
+		{
+			"id": "https://w3id.org/emerging/codes/D",
+			"type": "EvaluationCode",
+			"description": "Duplicated claim values"
+		},
+		{
+			"id": "https://w3id.org/emerging/codes/E",
+			"type": "EvaluationCode",
+			"description": "Below threshold confidence level"
+		},
+		{
+			"id": "https://w3id.org/emerging/codes/F",
+			"type": "EvaluationCode",
+			"description": "Invalid claim issuer"
+		}
+	]
+}
